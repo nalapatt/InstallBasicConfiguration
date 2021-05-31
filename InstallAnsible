@@ -20,3 +20,9 @@ Public IP address of slave in ec2
 - esc :wq
 
 - systemctl restart sshd
+
+# in the jenkins UI 
+manage plugins
+- make sure you install the ansible plugin
+configure global configuration
+- make sure you configure the ansible with the path /usr/bin/ in my case and name - (anyname)
