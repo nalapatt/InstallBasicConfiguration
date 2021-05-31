@@ -18,6 +18,11 @@
 - it shows locations of the files with that name
 - cd to all the  directories mentioned here one by one 
 - if you see a valve line comment it out
+- vi context.xml
+- comment the lines
+- valve that entire line
+- so <!--   -->!
+- esc :wq
 - vi context.xml comment the lines valve that entire line (it should be in 2 lines)
 - <!--  end it with >--! ( this will comment)
 - after that save and quit ! esc :wq
@@ -25,7 +30,12 @@
 - cd ../ cd conf
 - vi tomcat-users.xml
 - go to the role section and add
- - <user username="tomcat" password="tomcat" roles="tomcat,admin,admin-gui,manager,manager-gui"/>
+- <role rolename="manager-gui"/>
+- <user username="tomcat" password="s3cret" roles="manager-gui"/>
+
+- <role rolename="manager-script"/>
+- <user username="deployer" password="deployer" roles="manager-script"/>
+
 - save esc :wq
 - manager app sign in with tomcat and s3cret you are signed in
 
