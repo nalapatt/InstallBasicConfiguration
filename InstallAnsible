@@ -1,0 +1,8 @@
+- sudo apt-get update
+- sudo apt-get install software-properties-common
+- sudo apt-add-repository ppa:ansible/ansible
+- sudo apt-get update
+- sudo apt-get install ansible
+- ansible --version
+(get the executable location /usr/bin/ansible)
+- this will be used to configure ansible path in jenkins use only /usr/bin/ not the ansible
