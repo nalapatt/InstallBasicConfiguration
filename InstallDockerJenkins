@@ -1,0 +1,28 @@
+# Install docker in jenkins server
+- sudo apt-get update 
+- sudo apt install docker.io 
+- docker --version
+
+# start docker in jenkins
+- sudo service docker start
+
+# install jenkins and jdk in jenkins
+- sudo apt install openjdk-8* 
+- sudo wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+- sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ >
+/etc/apt/sources.list.d/jenkins.list' 
+- sudo apt-get update 
+- sudo apt-get install jenkins
+
+# create jenkins user to connect
+- sudo su - 
+- adduser jenkins
+- passwd
+- welcome123 (remember this password) 
+- enter for all and press Y for correct 
+# remember your username and password ( you will use this if connecting by password from jenkins UI)
+
+# give user permissions to use docker
+- sudo usermod -a -G docker jenkins
+- sudo service jenkins restart 
+- sudo service docker start
