@@ -1,0 +1,61 @@
+# check ssh connection with password
+- select manage jenkins
+- configure system 
+- go to add ssh remote hosts
+- hostname - pvt ip address of deploy node
+- port 22 
+- add jenkins credentials
+- username with password
+- username - deploy (the deploy server username you set up )
+- password - welcome123 ( the password that you gave for that user) 
+- id - deploy description - deploy add select deploy in drop down leave the other boxes blank test connection if passed then works from the jenkins user
+
+# from jenkins user ssh keygen
+- sudo su -
+- adduser jenkins ( might say already exists) 
+- passwd give new password ( remember this password)
+- su - jenkins
+
+# generate ssh keys
+- ssh-keygen 
+- enter for all the questions 
+- cd .ssh 
+- ls
+(now you will see id_rsa.pub and id_rsa keys)
+
+# copy the public key to the hosts server
+- ssh-copy-id -i id_rsa.pub deploy@172.31.23.115 ( to copy the files to the deploy server) 
+- press yes 
+- enter password ( the one you set up for the deploy user)
+- key will be added
+
+# check if you can ssh to the host
+- ssh -i id_rsa deploy@172.31.23.115 ( to see if you can log in to the server)
+
+
+# yeah if you did now you can check if the authorized_keys exist in the .ssh folder here exit to go back to the jenkins server VM
+
+- configure jenkins
+- ssh keys credentials
+- manage jenkins
+- manage credentials
+
+- Stores scoped to Jenkins 
+- go to the global drop down box 
+- and add credentials
+- ssh username with private key 
+- id dev-server 
+- description dev-server 
+- username deploy ( the user name you set up in the server)
+- private key enter directly
+- add 
+- go back to the terminal 
+- sudo su - 
+- su - jenkins
+- cd .ssh 
+- cat id_rsa
+- get the private key 
+- copy and paste in the UI 
+- ok
+
+# use this ssh key to connect to the target node
