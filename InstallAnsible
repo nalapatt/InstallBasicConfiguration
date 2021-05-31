@@ -6,3 +6,17 @@
 - ansible --version
 (get the executable location /usr/bin/ansible)
 - this will be used to configure ansible path in jenkins use only /usr/bin/ not the ansible
+# add hosts
+- sudo vi /etc/ansible/hosts
+add
+[deployserver]
+Public IP address of slave in ec2
+
+# if using password to connect then do this in the server
+- sudo vi /etc/ssh/sshd_config
+
+- Permitrootlogin delete prohibit password and add yes
+- passwordauthentication change no to yes
+- esc :wq
+
+- systemctl restart sshd
