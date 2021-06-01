@@ -8,7 +8,8 @@
 - tar -xvzf apache-tomcat-8.5.66.tar.gz (the gz file)
 - mv apache-tomcat-8.5.66 tomcat
 - cd tomcat
-- cd bin ./startup.sh
+- cd bin 
+- ./startup.sh
 - ipaddress:8080 
 - you should see the tomcat server 
 - click manager app 
